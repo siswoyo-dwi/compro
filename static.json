@@ -1,0 +1,12 @@
+{
+  "master": {
+    "logo_app": "",
+    "name_app": ""
+  },
+  "data_static": {
+  },
+  "pagination": {
+    "row": 10,
+    "perPage": [10, 20, 50, 100]
+  }
+}
