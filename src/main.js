@@ -102,6 +102,8 @@ import store from "./store/store";
 import ip from "@/axios/index.js";
 import moment from "moment";
 import "moment/locale/id";
+import '../style.css'
+
 const app = createApp({
     render () { return h(AppWrapper); }
 });
