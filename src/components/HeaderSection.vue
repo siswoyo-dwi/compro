@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed w-full z-10 bg-gray-900 shadow">
+  <nav class="fixed w-full z-10 bg-transparent shadow">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center">
@@ -10,7 +10,7 @@
             v-for="item in navItems"
             :key="item.text"
             :to="item.link"
-            class="text-gray-300 hover:bg-gray-800 hover:text-white px-4 py-2 rounded transition duration-300"
+            class="text-white hover:bg-gray-800 hover:text-white px-4 py-2 rounded transition duration-300"
           >
             {{ item.text }}
           </router-link>
@@ -39,7 +39,7 @@
             v-for="item in navItems"
             :key="item.text"
             :to="item.link"
-            class="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded transition duration-300"
+            class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white rounded transition duration-300"
             @click="toggleMenu"
           >
             {{ item.text }}
@@ -68,6 +68,15 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+    handleScroll() {
+      this.isScrolled = window.scrollY > 0;
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>
